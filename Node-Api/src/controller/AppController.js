@@ -19,7 +19,12 @@ class AppController{
     getCpuDetails(req,res){
         var promise = appServices.getCPUDetails(); 
         promise.then((result) =>{
-            res.send(result);
+            console.log("The brand is : " +result.brand)
+            console.log("Speed : "+result.speed);
+            console.log("Manufacturer :"+result.manufacturer);
+           // res.send(Object.entries(result));
+           res.send(JSON.stringify(result));
+           //res.send(result);
         }).catch((err) =>{
             console.log("Error : Failed to get the data " +err);
         })
